@@ -16,7 +16,7 @@ public class login_petugas extends javax.swing.JFrame {
      */
     public login_petugas() {
         initComponents();
-        //transparan 
+        //transparan colom
         username.setBackground(new java.awt.Color(0,0,0,1));
         Pw.setBackground(new java.awt.Color(0,0,0,1));
         
@@ -51,7 +51,7 @@ public class login_petugas extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jBsimpan.setBackground(new java.awt.Color(100, 195, 239));
+        jBsimpan.setBackground(new java.awt.Color(45, 116, 124));
         jBsimpan.setForeground(new java.awt.Color(255, 255, 255));
         jBsimpan.setText("Masuk");
         jBsimpan.setBorder(null);
@@ -92,7 +92,7 @@ public class login_petugas extends javax.swing.JFrame {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/login petugas.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/login.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
