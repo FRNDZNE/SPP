@@ -39,10 +39,8 @@
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jLabel2" max="32767" attributes="0"/>
-                                      <Component id="jLabel3" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="jLabel2" max="32767" attributes="0"/>
+                                  <Component id="jLabel3" max="32767" attributes="0"/>
                                   <Component id="tfUsername" alignment="0" pref="143" max="32767" attributes="0"/>
                                   <Component id="tfPassword" alignment="0" max="32767" attributes="0"/>
                               </Group>

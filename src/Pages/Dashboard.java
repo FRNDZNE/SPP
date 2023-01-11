@@ -13,6 +13,8 @@ public class Dashboard extends javax.swing.JFrame {
     /**
      * Creates new form Dashboard
      */
+    private Home home = new Home();
+ 
     public Dashboard() {
         initComponents();
     }
@@ -28,6 +30,8 @@ public class Dashboard extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         btnKeluar = new javax.swing.JButton();
+        btnKelas = new javax.swing.JButton();
+        btnSiswa = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -45,6 +49,20 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
+        btnKelas.setText("Kelas");
+        btnKelas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKelasActionPerformed(evt);
+            }
+        });
+
+        btnSiswa.setText("Siswa");
+        btnSiswa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSiswaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -52,11 +70,17 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(177, 177, 177)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btnKeluar)))
+                        .addComponent(btnKeluar))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(81, 81, 81)
+                            .addComponent(btnKelas)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnSiswa))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(177, 177, 177)
+                            .addComponent(jLabel1))))
                 .addContainerGap(186, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -64,7 +88,11 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(66, 66, 66)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 194, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnKelas)
+                    .addComponent(btnSiswa))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
                 .addComponent(btnKeluar)
                 .addGap(47, 47, 47))
         );
@@ -75,15 +103,25 @@ public class Dashboard extends javax.swing.JFrame {
     private void btnKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKeluarActionPerformed
         // TODO add your handling code here:
         dispose();
-        Home home = new Home();
         home.setVisible(true);
     }//GEN-LAST:event_btnKeluarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        dispose();
+        
         
     }//GEN-LAST:event_formWindowOpened
+
+    private void btnKelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKelasActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        Kelas kelas = new Kelas();
+        kelas.setVisible(true);
+    }//GEN-LAST:event_btnKelasActionPerformed
+
+    private void btnSiswaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiswaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSiswaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -121,7 +159,9 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnKelas;
     private javax.swing.JButton btnKeluar;
+    private javax.swing.JButton btnSiswa;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
    

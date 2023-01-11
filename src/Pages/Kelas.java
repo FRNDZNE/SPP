@@ -5,22 +5,49 @@
 package Pages;
 
 import javax.swing.JOptionPane;
-import koneksi.Koneksi;
+import java.sql.*;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Hafiz
  */
-public class Kelas extends javax.swing.JFrame implements Koneksi {
+public class Kelas extends javax.swing.JFrame {
 
     /**
      * Creates new form Kelas
      */
-    Koneksi cn = new Koneksi();
-    
+    DefaultTableModel model;
+    Boolean statusSimpan;
+    Connection conn;
+    Statement command;
+    ResultSet result;
     
     public Kelas() {
         initComponents();
+        model = (DefaultTableModel) tableKelas.getModel();
+        
+        try {
+            // Register
+            Class.forName("com.mysql.jdbc.Driver");
+            JOptionPane.showMessageDialog(this, "Success for Driver");
+            
+            //Create Connection
+            String url = "jdbc:mysql://localhost/spp";
+            String username = "root";
+            String password = "";
+            
+            //Connection to DB
+            conn = DriverManager.getConnection(url,username,password);
+            JOptionPane.showMessageDialog(this, "Database Sucessfull", "Information", JOptionPane.INFORMATION_MESSAGE);
+            
+            //Create Statement
+            command = conn.createStatement();
+        } catch (Exception e) {
+        } catch (SQLException es)
+        {
+            
+        }
     }
 
     /**
@@ -56,13 +83,13 @@ public class Kelas extends javax.swing.JFrame implements Koneksi {
 
         tableKelas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "No", "Kelas", "Jurusan"
             }
         ));
         jScrollPane1.setViewportView(tableKelas);
@@ -115,16 +142,13 @@ public class Kelas extends javax.swing.JFrame implements Koneksi {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(frmKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(frmJurusan, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(frmKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(frmJurusan, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
