@@ -44,9 +44,6 @@ public class Kelas extends javax.swing.JFrame {
             //Create Statement
             command = conn.createStatement();
         } catch (Exception e) {
-        } catch (SQLException es)
-        {
-            
         }
     }
 
