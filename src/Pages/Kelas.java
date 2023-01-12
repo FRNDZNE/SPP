@@ -23,6 +23,7 @@ public class Kelas extends javax.swing.JFrame {
     Statement command;
     ResultSet result;
     
+    
     public Kelas() {
         initComponents();
         model = (DefaultTableModel) tableKelas.getModel();
@@ -43,7 +44,10 @@ public class Kelas extends javax.swing.JFrame {
             
             //Create Statement
             command = conn.createStatement();
-        } catch (Exception e) {
+        } catch (ClassNotFoundException es) {
+            JOptionPane.showMessageDialog(this, "Failed to load driver");
+        } catch (SQLException e){
+            JOptionPane.showMessageDialog(this, "Database Gagal", "Information", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
@@ -80,10 +84,7 @@ public class Kelas extends javax.swing.JFrame {
 
         tableKelas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "No", "Kelas", "Jurusan"
@@ -208,11 +209,26 @@ public class Kelas extends javax.swing.JFrame {
         btnEdit.setEnabled(false);
         btnHapus.setEnabled(false);
         btnBatal.setEnabled(false);
+        
+        try {
+            result = command.executeQuery("select * from kelas");
+                while (result.next()) {
+                model.addRow(new Object[]{
+                    result.getString(1),
+                    result.getString(2),
+                    result.getString(3),
+                   
+                });
+            }
+        } catch (SQLException e) {
+            // TODO: handle exception
+            JOptionPane.showMessageDialog(this, "Database Gagal","Information", JOptionPane.INFORMATION_MESSAGE);
+        }   
     }//GEN-LAST:event_formWindowOpened
 
     private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
         // TODO add your handling code here:
-        frmId.setEnabled(true);
+        frmId.setEnabled(false);
         frmKelas.setEnabled(true);
         frmJurusan.setEnabled(true);
         btnTambah.setEnabled(false);
@@ -220,6 +236,7 @@ public class Kelas extends javax.swing.JFrame {
         btnEdit.setEnabled(false);
         btnHapus.setEnabled(false);
         btnBatal.setEnabled(true);
+        statusSimpan = true;
     }//GEN-LAST:event_btnTambahActionPerformed
 
     private void btnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalActionPerformed
@@ -231,7 +248,7 @@ public class Kelas extends javax.swing.JFrame {
         // TODO add your handling code here:
         int answer = JOptionPane.showOptionDialog(null, "Delete this one ?", "Alert", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
         if (answer == JOptionPane.YES_OPTION) {
-            saveClass();
+            
         }
         
     }//GEN-LAST:event_btnSimpanActionPerformed
@@ -272,6 +289,7 @@ public class Kelas extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Kelas().setVisible(true);
             }
@@ -309,5 +327,11 @@ public class Kelas extends javax.swing.JFrame {
         btnEdit.setEnabled(false);
         btnHapus.setEnabled(false);
         btnBatal.setEnabled(false);
+        statusSimpan = false;
+    }
+    
+    private void readData()
+    {
+        
     }
 }
