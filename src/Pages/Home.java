@@ -155,6 +155,8 @@ public class Home extends javax.swing.JFrame {
             dispose();
             Dashboard ds = new Dashboard();
             ds.setVisible(true);
+        } else {
+            btnResetActionPerformed(evt);
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
