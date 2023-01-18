@@ -86,10 +86,25 @@ public class Spp extends javax.swing.JFrame {
         });
 
         btnSimpan.setText("Simpan");
+        btnSimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSimpanActionPerformed(evt);
+            }
+        });
 
         btnEdit.setText("Edit");
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
 
         btnHapus.setText("Hapus");
+        btnHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHapusActionPerformed(evt);
+            }
+        });
 
         btnBatal.setText("Batal");
         btnBatal.addActionListener(new java.awt.event.ActionListener() {
@@ -123,35 +138,40 @@ public class Spp extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(btnTambah)
-                        .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(frmAngkatan, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(frmNominal, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(frmId, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnKembali)
+                                        .addGap(38, 38, 38))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 15, Short.MAX_VALUE)
                                 .addComponent(btnSimpan)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
                                 .addComponent(btnEdit)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnHapus)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnBatal))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(frmAngkatan, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(frmId, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(frmNominal, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addComponent(btnBatal)))))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnKembali)
-                        .addGap(56, 56, 56))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -161,16 +181,12 @@ public class Spp extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(btnKembali))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(frmId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(13, 13, 13)
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(frmId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnKembali))
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(frmAngkatan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -226,6 +242,29 @@ public class Spp extends javax.swing.JFrame {
         // TODO add your handling code here:
         mouseClicked();
     }//GEN-LAST:event_tableSppMouseClicked
+
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        // TODO add your handling code here:
+        btnTambah.setEnabled(false);
+        btnSimpan.setEnabled(true);
+        btnEdit.setEnabled(false);
+        btnHapus.setEnabled(false);
+        btnBatal.setEnabled(true);
+        frmId.setEnabled(false);
+        frmAngkatan.setEnabled(true);
+        frmNominal.setEnabled(true);
+        koneksi.statusSimpan = false;
+    }//GEN-LAST:event_btnEditActionPerformed
+
+    private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
+        // TODO add your handling code here:
+        saveData();
+    }//GEN-LAST:event_btnSimpanActionPerformed
+
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
+        // TODO add your handling code here:
+        hapusData();
+    }//GEN-LAST:event_btnHapusActionPerformed
 
     /**
      * @param args the command line arguments
@@ -290,6 +329,7 @@ public class Spp extends javax.swing.JFrame {
         frmId.setEnabled(false);
         frmAngkatan.setEnabled(false);
         frmNominal.setEnabled(false);
+        koneksi.statusSimpan = false;
         readData();
     }
     
@@ -303,14 +343,18 @@ public class Spp extends javax.swing.JFrame {
         frmId.setEnabled(false);
         frmAngkatan.setEnabled(false);
         frmNominal.setEnabled(false);
+        frmId.setText(null);
+        frmAngkatan.setText(null);
+        frmNominal.setText(null);
+        koneksi.statusSimpan = false;
     }
     
     private void readData()
     {
         try {
             koneksi.result = koneksi.command.executeQuery("select * from spp");
-            //koneksi.model.setRowCount(0);
-            //koneksi.model.fireTableDataChanged();
+            koneksi.model.setRowCount(0);
+            koneksi.model.fireTableDataChanged();
             while (koneksi.result.next()) {
                 koneksi.model.addRow(new Object[]{
                     koneksi.result.getString(1),
@@ -333,6 +377,7 @@ public class Spp extends javax.swing.JFrame {
         btnEdit.setEnabled(false);
         btnHapus.setEnabled(false);
         btnTambah.setEnabled(false);
+        koneksi.statusSimpan = true;
     }
     
     private void mouseClicked()
@@ -345,5 +390,51 @@ public class Spp extends javax.swing.JFrame {
         frmId.setText(tableSpp.getValueAt(tableSpp.getSelectedRow(),0).toString());
         frmAngkatan.setText(tableSpp.getValueAt(tableSpp.getSelectedRow(),1).toString());
         frmNominal.setText(tableSpp.getValueAt(tableSpp.getSelectedRow(),2).toString());
+    }
+    
+    private void saveData()
+    {
+        if (frmId.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Masukkan Id", "Informasi", JOptionPane.INFORMATION_MESSAGE);
+        } else if (frmAngkatan.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Masukkan Angkatan", "Informasi", JOptionPane.INFORMATION_MESSAGE);
+        } else if (frmNominal.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Masukkan Nominal", "Informasi", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            if (koneksi.statusSimpan == true) {
+                try {
+                    koneksi.command.executeUpdate("insert into spp values ('"
+                    + frmId.getText() + "','"
+                    + frmAngkatan.getText() + "','"
+                    + frmNominal.getText() + "')");
+                
+                } catch (SQLException e) {
+                    JOptionPane.showMessageDialog(this, "Gagal Insert" ,"Information", JOptionPane.INFORMATION_MESSAGE);
+                }
+            } else {
+                try {
+                    koneksi.command.executeUpdate("update spp set tahun = " + frmAngkatan.getText() + ", nominal = " + frmNominal.getText() + " where id_spp = " + frmId.getText());
+                } catch (SQLException e) {
+                    JOptionPane.showMessageDialog(this, "Gagal Update" ,"Information", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+            resetForm();
+            readData();
+        }
+    }
+    
+    private void hapusData()
+    {
+        int answer = JOptionPane.showOptionDialog(null, "Delete this one ?", "Alert", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+        if (answer == JOptionPane.YES_OPTION) {
+            try {
+                koneksi.command.executeUpdate("delete from spp where id_spp=" + frmId.getText());
+                koneksi.model.removeRow(tableSpp.getSelectedRow());
+                resetForm();
+                readData();
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(this, "Gagal Menghapus", "Informasi", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
     }
 }
