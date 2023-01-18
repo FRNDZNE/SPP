@@ -7,6 +7,7 @@ package Pages;
 import javax.swing.JOptionPane;
 import java.sql.*;
 import javax.swing.table.DefaultTableModel;
+import koneksi.*;
 
 /**
  *
@@ -17,34 +18,17 @@ public class Kelas extends javax.swing.JFrame {
     /**
      * Creates new form Kelas
      */
-    DefaultTableModel model;
-    Boolean statusSimpan;
-    Connection conn;
-    Statement command;
-    ResultSet result;
+    
+    
+    Page page = new Page();
+    Koneksi koneksi = new Koneksi();
+    
     
     public Kelas() {
         initComponents();
-        model = (DefaultTableModel) tableKelas.getModel();
+        koneksi.model = (DefaultTableModel) tableKelas.getModel();
+        koneksi.CreateKoneksi();
         
-        try {
-            // Register
-            Class.forName("com.mysql.jdbc.Driver");
-            JOptionPane.showMessageDialog(this, "Success for Driver");
-            
-            //Create Connection
-            String url = "jdbc:mysql://localhost/spp";
-            String username = "root";
-            String password = "";
-            
-            //Connection to DB
-            conn = DriverManager.getConnection(url,username,password);
-            JOptionPane.showMessageDialog(this, "Database Sucessfull", "Information", JOptionPane.INFORMATION_MESSAGE);
-            
-            //Create Statement
-            command = conn.createStatement();
-        } catch (Exception e) {
-        }
     }
 
     /**
@@ -66,10 +50,10 @@ public class Kelas extends javax.swing.JFrame {
         id = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        frmId = new javax.swing.JSpinner();
         frmKelas = new javax.swing.JTextField();
         frmJurusan = new javax.swing.JTextField();
         btnKembali = new javax.swing.JButton();
+        frmId = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -80,15 +64,20 @@ public class Kelas extends javax.swing.JFrame {
 
         tableKelas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "No", "Kelas", "Jurusan"
             }
         ));
+        tableKelas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableKelasMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                tableKelasMouseEntered(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableKelas);
 
         btnTambah.setText("Tambah");
@@ -106,8 +95,18 @@ public class Kelas extends javax.swing.JFrame {
         });
 
         btnEdit.setText("Edit");
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
 
         btnHapus.setText("Hapus");
+        btnHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHapusActionPerformed(evt);
+            }
+        });
 
         btnBatal.setText("Batal");
         btnBatal.addActionListener(new java.awt.event.ActionListener() {
@@ -134,24 +133,20 @@ public class Kelas extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(331, 331, 331)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(frmKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(frmJurusan, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(frmId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnKembali))))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(frmKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(frmJurusan, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(frmId, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addGroup(layout.createSequentialGroup()
@@ -164,25 +159,30 @@ public class Kelas extends javax.swing.JFrame {
                             .addComponent(btnHapus)
                             .addGap(18, 18, 18)
                             .addComponent(btnBatal))))
-                .addGap(0, 13, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnKembali)
+                .addGap(48, 48, 48))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGap(27, 27, 27)
+                .addComponent(btnKembali)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(id)
-                    .addComponent(frmId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnKembali))
-                .addGap(26, 26, 26)
+                    .addComponent(frmId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(frmKelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(frmJurusan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 236, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnTambah)
                     .addComponent(btnSimpan)
@@ -208,6 +208,9 @@ public class Kelas extends javax.swing.JFrame {
         btnEdit.setEnabled(false);
         btnHapus.setEnabled(false);
         btnBatal.setEnabled(false);
+        readData();
+        findId();
+        
     }//GEN-LAST:event_formWindowOpened
 
     private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
@@ -220,6 +223,7 @@ public class Kelas extends javax.swing.JFrame {
         btnEdit.setEnabled(false);
         btnHapus.setEnabled(false);
         btnBatal.setEnabled(true);
+        koneksi.statusSimpan = true;
     }//GEN-LAST:event_btnTambahActionPerformed
 
     private void btnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalActionPerformed
@@ -229,19 +233,35 @@ public class Kelas extends javax.swing.JFrame {
 
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
         // TODO add your handling code here:
-        int answer = JOptionPane.showOptionDialog(null, "Delete this one ?", "Alert", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
-        if (answer == JOptionPane.YES_OPTION) {
-            saveClass();
-        }
+        saveData();
         
     }//GEN-LAST:event_btnSimpanActionPerformed
 
     private void btnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembaliActionPerformed
         // TODO add your handling code here:
-        dispose();
-        Dashboard ds = new Dashboard();
-        ds.setVisible(true);
+        dispose();  
+        page.halamanDashboard();
     }//GEN-LAST:event_btnKembaliActionPerformed
+
+    
+    private void tableKelasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableKelasMouseClicked
+        // TODO add your handling code here:
+        mouseClicked();
+    }//GEN-LAST:event_tableKelasMouseClicked
+
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        // TODO add your handling code here:
+        editData();
+    }//GEN-LAST:event_btnEditActionPerformed
+
+    private void tableKelasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableKelasMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tableKelasMouseEntered
+
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
+        // TODO add your handling code here:
+        hapusData();
+    }//GEN-LAST:event_btnHapusActionPerformed
 
     /**
      * @param args the command line arguments
@@ -272,6 +292,7 @@ public class Kelas extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Kelas().setVisible(true);
             }
@@ -285,7 +306,7 @@ public class Kelas extends javax.swing.JFrame {
     private javax.swing.JButton btnKembali;
     private javax.swing.JButton btnSimpan;
     private javax.swing.JButton btnTambah;
-    private javax.swing.JSpinner frmId;
+    private javax.swing.JTextField frmId;
     private javax.swing.JTextField frmJurusan;
     private javax.swing.JTextField frmKelas;
     private javax.swing.JLabel id;
@@ -294,9 +315,64 @@ public class Kelas extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableKelas;
     // End of variables declaration//GEN-END:variables
-    private void saveClass()
+    // save Data terdapat query untuk menyimpan dan mengupdate data
+    private void saveData()
     {
-        
+        if (frmId.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Masukkan Id", "Informasi", JOptionPane.INFORMATION_MESSAGE);
+        } else if (frmJurusan.getText().equals(null)) {
+            JOptionPane.showMessageDialog(this, "Masukkan Jurusan", "Informasi", JOptionPane.INFORMATION_MESSAGE);
+        } else if (frmKelas.getText().equals(null)) {
+            JOptionPane.showMessageDialog(this, "Masukkan Kelas", "Informasi", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            if (koneksi.statusSimpan == true) {
+                try {
+                    koneksi.command.executeUpdate("insert into kelas values ('"
+                           + frmId.getText() + "','"
+                           + frmKelas.getText() + "','"
+                           + frmJurusan.getText() + "')");
+                    resetForm();
+                    readData();
+                } catch (SQLException e) {
+                    JOptionPane.showMessageDialog(this, "Insert Gagal","Informasi", JOptionPane.INFORMATION_MESSAGE);
+                }
+                        
+            } else {
+                try {
+                    koneksi.command.executeUpdate("update kelas set nama_kelas='" + frmKelas.getText() + "', jurusan = '"+ frmJurusan.getText() +"' where id_kelas = " + frmId.getText());
+                    resetForm();
+                    readData();
+                } catch (SQLException e) {
+                    JOptionPane.showMessageDialog(this, "Update Gagal","Informasi", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+        }
+    }
+    
+    private void editData()
+    {
+        btnSimpan.setEnabled(true);
+        btnBatal.setEnabled(true);
+        btnHapus.setEnabled(false);
+        frmId.setEnabled(false);
+        frmKelas.setEnabled(true);
+        frmJurusan.setEnabled(true);
+        koneksi.statusSimpan = false;
+    }
+    
+    private void hapusData()
+    {
+        int answer = JOptionPane.showOptionDialog(null, "Delete this one ?", "Alert", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+        if (answer == JOptionPane.YES_OPTION) {
+            try {
+                koneksi.command.executeUpdate("delete from kelas where id_kelas=" + frmId.getText());
+                koneksi.model.removeRow(tableKelas.getSelectedRow());
+                resetForm();
+                readData();
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(this, "Gagal Menghapus", "Informasi", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
     }
     
     private void resetForm()
@@ -309,5 +385,52 @@ public class Kelas extends javax.swing.JFrame {
         btnEdit.setEnabled(false);
         btnHapus.setEnabled(false);
         btnBatal.setEnabled(false);
+        frmId.setText(null);
+        frmKelas.setText(null);
+        frmJurusan.setText(null);
+        koneksi.statusSimpan = false;
     }
+    
+    private void readData()
+    {
+        try {
+            koneksi.result = koneksi.command.executeQuery("select * from kelas");
+                koneksi.model.setRowCount(0);
+                koneksi.model.fireTableDataChanged();
+                while (koneksi.result.next()) {
+                koneksi.model.addRow(new Object[]{
+                    koneksi.result.getString(1),
+                    koneksi.result.getString(2),
+                    koneksi.result.getString(3),
+                   
+                });
+            }
+        } catch (SQLException e) {
+            // TODO: handle exception
+                JOptionPane.showMessageDialog(this, "Database Gagal","Information", JOptionPane.INFORMATION_MESSAGE);
+        }   
+    }
+    
+    private void mouseClicked()
+    {
+        btnTambah.setEnabled(false);
+        btnSimpan.setEnabled(false);
+        btnEdit.setEnabled(true);
+        btnHapus.setEnabled(true);
+        btnBatal.setEnabled(true);
+        frmId.setText(tableKelas.getValueAt(tableKelas.getSelectedRow(),0).toString());
+        frmKelas.setText(tableKelas.getValueAt(tableKelas.getSelectedRow(),1).toString());
+        frmJurusan.setText(tableKelas.getValueAt(tableKelas.getSelectedRow(),2).toString());
+    }
+    
+    private void findId()
+    {
+        try {
+            koneksi.result = koneksi.command.executeQuery("SELECT * FROM kelas ORDER BY id_kelas DESC LIMIT 1");
+            System.out.println(koneksi.result);
+        } catch (Exception e) {
+            System.out.println("ID GAGAL DITEMUKAN");
+        }
+    }
+    
 }
