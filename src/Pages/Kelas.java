@@ -199,7 +199,6 @@ public class Kelas extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // Starting Form
-        
         frmId.setEnabled(false);
         frmKelas.setEnabled(false);
         frmJurusan.setEnabled(false);
@@ -320,19 +319,18 @@ public class Kelas extends javax.swing.JFrame {
     {
         if (frmId.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Masukkan Id", "Informasi", JOptionPane.INFORMATION_MESSAGE);
-        } else if (frmJurusan.getText().equals(null)) {
-            JOptionPane.showMessageDialog(this, "Masukkan Jurusan", "Informasi", JOptionPane.INFORMATION_MESSAGE);
-        } else if (frmKelas.getText().equals(null)) {
+        }else if (frmKelas.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Masukkan Kelas", "Informasi", JOptionPane.INFORMATION_MESSAGE);
-        } else {
+        } else if (frmJurusan.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Masukkan Jurusan", "Informasi", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else {
             if (koneksi.statusSimpan == true) {
                 try {
                     koneksi.command.executeUpdate("insert into kelas values ('"
                            + frmId.getText() + "','"
                            + frmKelas.getText() + "','"
                            + frmJurusan.getText() + "')");
-                    resetForm();
-                    readData();
                 } catch (SQLException e) {
                     JOptionPane.showMessageDialog(this, "Insert Gagal","Informasi", JOptionPane.INFORMATION_MESSAGE);
                 }
@@ -340,12 +338,12 @@ public class Kelas extends javax.swing.JFrame {
             } else {
                 try {
                     koneksi.command.executeUpdate("update kelas set nama_kelas='" + frmKelas.getText() + "', jurusan = '"+ frmJurusan.getText() +"' where id_kelas = " + frmId.getText());
-                    resetForm();
-                    readData();
                 } catch (SQLException e) {
                     JOptionPane.showMessageDialog(this, "Update Gagal","Informasi", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
+            resetForm();
+            readData();
         }
     }
     
