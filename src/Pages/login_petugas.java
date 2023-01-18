@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Pages;
+import koneksi.Page;
 
 /**
  *
@@ -14,11 +15,12 @@ public class login_petugas extends javax.swing.JFrame {
     /**
      * Creates new form login
      */
+    Page page = new Page();
     public login_petugas() {
         initComponents();
         //transparan colom
-        username.setBackground(new java.awt.Color(0,0,0,1));
-        Pw.setBackground(new java.awt.Color(0,0,0,1));
+        tfUsername.setBackground(new java.awt.Color(0,0,0,1));
+        tfPassword.setBackground(new java.awt.Color(0,0,0,1));
         
     }
 
@@ -31,43 +33,43 @@ public class login_petugas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        username = new javax.swing.JTextField();
-        Pw = new javax.swing.JPasswordField();
+        tfUsername = new javax.swing.JTextField();
+        tfPassword = new javax.swing.JPasswordField();
         jPanel1 = new javax.swing.JPanel();
-        jBsimpan = new javax.swing.JButton();
-        jBbatal = new javax.swing.JButton();
+        btnLogin = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        username.setBorder(null);
+        tfUsername.setBorder(null);
 
-        Pw.setBorder(null);
-        Pw.addActionListener(new java.awt.event.ActionListener() {
+        tfPassword.setBorder(null);
+        tfPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PwActionPerformed(evt);
+                tfPasswordActionPerformed(evt);
             }
         });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jBsimpan.setBackground(new java.awt.Color(45, 116, 124));
-        jBsimpan.setForeground(new java.awt.Color(255, 255, 255));
-        jBsimpan.setText("Masuk");
-        jBsimpan.setBorder(null);
-        jBsimpan.addActionListener(new java.awt.event.ActionListener() {
+        btnLogin.setBackground(new java.awt.Color(45, 116, 124));
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogin.setText("Masuk");
+        btnLogin.setBorder(null);
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBsimpanActionPerformed(evt);
+                btnLoginActionPerformed(evt);
             }
         });
 
-        jBbatal.setBackground(new java.awt.Color(255, 87, 87));
-        jBbatal.setForeground(new java.awt.Color(255, 255, 255));
-        jBbatal.setText("Batal");
-        jBbatal.setBorder(null);
-        jBbatal.addActionListener(new java.awt.event.ActionListener() {
+        btnExit.setBackground(new java.awt.Color(255, 87, 87));
+        btnExit.setForeground(new java.awt.Color(255, 255, 255));
+        btnExit.setText("Batal");
+        btnExit.setBorder(null);
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBbatalActionPerformed(evt);
+                btnExitActionPerformed(evt);
             }
         });
 
@@ -77,9 +79,9 @@ public class login_petugas extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(59, Short.MAX_VALUE)
-                .addComponent(jBsimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jBbatal, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45))
         );
         jPanel1Layout.setVerticalGroup(
@@ -87,8 +89,8 @@ public class login_petugas extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jBbatal, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                    .addComponent(jBsimpan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnExit, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -100,10 +102,10 @@ public class login_petugas extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(390, 390, 390)
-                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(tfUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(390, 390, 390)
-                .addComponent(Pw, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(tfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(410, 410, 410)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -113,9 +115,9 @@ public class login_petugas extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(270, 270, 270)
-                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addComponent(Pw, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -125,26 +127,27 @@ public class login_petugas extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void PwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PwActionPerformed
+    private void tfPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PwActionPerformed
+    }//GEN-LAST:event_tfPasswordActionPerformed
 
-    private void jBbatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBbatalActionPerformed
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
          System.exit(0);
-    }//GEN-LAST:event_jBbatalActionPerformed
+    }//GEN-LAST:event_btnExitActionPerformed
 
-    private void jBsimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBsimpanActionPerformed
-        String uusername = username.getText();
-        String password = Pw.getText();
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        String username = tfUsername.getText();
+        String password = tfPassword.getText();
         
-        if (uusername.contains("admin") && password.contains("admin")) {
-            username.setText(null);
-            Pw.setText(null);
+        if (username.contains("admin") && password.contains("polnep")) {
+            tfUsername.setText(null);
+            tfPassword.setText(null);
             dispose();
-            Dashboard ds = new Dashboard();
-            ds.setVisible(true);
+            page.halamanDashboard();
+        } else {
+            
         }
-    }//GEN-LAST:event_jBsimpanActionPerformed
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,11 +186,11 @@ public class login_petugas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPasswordField Pw;
-    private javax.swing.JButton jBbatal;
-    private javax.swing.JButton jBsimpan;
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField username;
+    private javax.swing.JPasswordField tfPassword;
+    private javax.swing.JTextField tfUsername;
     // End of variables declaration//GEN-END:variables
 }

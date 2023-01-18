@@ -10,10 +10,15 @@ import Pages.*;
  * @author Hafiz
  */
 public class Page {
-    public void Depan()
+    public void halamanHome()
     {
         Home home = new Home();
         home.setVisible(true);
+    }
+    public void halamanDashboard()
+    {
+        Dashboard dashboard = new Dashboard();
+        dashboard.setVisible(true);
     }
     
 }
