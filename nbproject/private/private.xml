@@ -5,12 +5,14 @@
         <group>
             <file>file:/D:/SPP.git/src/Pages/Dashboard.java</file>
             <file>file:/D:/SPP.git/src/Pages/Home.java</file>
-            <file>file:/D:/SPP.git/src/Assets/LOGIN%20ADMIN.png</file>
             <file>file:/D:/SPP.git/src/Pages/login.java</file>
             <file>file:/D:/SPP.git/src/Assets/gaming.jpg</file>
             <file>file:/D:/SPP.git/src/Pages/Siswa.java</file>
+            <file>file:/D:/SPP.git/src/Pages/TampilanAwal.java</file>
             <file>file:/D:/SPP.git/src/Pages/Spp.java</file>
+            <file>file:/D:/SPP.git/src/Pages/Pembayaran.java</file>
             <file>file:/D:/SPP.git/src/Pages/login_petugas.java</file>
+            <file>file:/D:/SPP.git/src/Pages/Kelas.java</file>
         </group>
     </open-files>
 </project-private>
