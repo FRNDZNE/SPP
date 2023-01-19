@@ -6,6 +6,7 @@ package Pages;
 
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
+import javax.swing.JOptionPane;
 import koneksi.*;
 
 /**
@@ -61,6 +62,11 @@ public class Siswa extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel1.setText("Halaman Siswa");
 
@@ -234,6 +240,11 @@ public class Siswa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnTambahActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        readData();
+    }//GEN-LAST:event_formWindowOpened
+
     /**
      * @param args the command line arguments
      */
@@ -296,4 +307,24 @@ public class Siswa extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tableSiswa;
     // End of variables declaration//GEN-END:variables
+    private void readData()
+    {
+        try {
+            koneksi.result = koneksi.command.executeQuery("select siswa.nama, siswa.nis, kelas.nama_kelas, kelas.jurusan, spp.tahun from siswa, kelas, spp where siswa.id_kelas = kelas.id_kelas and siswa.id_spp = spp.id_spp");
+                koneksi.model.setRowCount(0);
+                koneksi.model.fireTableDataChanged();
+                while (koneksi.result.next()) {
+                koneksi.model.addRow(new Object[]{
+                    koneksi.result.getString(1),
+                    koneksi.result.getString(2),
+                    koneksi.result.getString(3),
+                    koneksi.result.getString(4),
+                    koneksi.result.getString(5)
+                });
+            }
+        } catch (SQLException e) {
+            // TODO: handle exception
+                JOptionPane.showMessageDialog(this, "Database Gagal","Information", JOptionPane.INFORMATION_MESSAGE);
+        }   
+    }
 }
