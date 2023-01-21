@@ -41,8 +41,25 @@ public class Siswa extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableSiswa = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
+        frmAngkatan = new javax.swing.JComboBox<>();
+        frmKelas = new javax.swing.JComboBox<>();
+        frmNama = new javax.swing.JTextField();
+        frmNIS = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        btnBatal = new javax.swing.JButton();
+        btnHapus = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
+        btnSimpan = new javax.swing.JButton();
+        btnTambah = new javax.swing.JButton();
+        btnCari = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        frmAlamat = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -71,6 +88,22 @@ public class Siswa extends javax.swing.JFrame {
         jLabel1.setText("Halaman Siswa");
 
         jLabel2.setText("Cari");
+        panelSiswa.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 33, -1));
+
+        frmAlamat.setColumns(20);
+        frmAlamat.setRows(5);
+        jScrollPane2.setViewportView(frmAlamat);
+
+        panelSiswa.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, 230, -1));
+
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Alamat");
+        panelSiswa.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 90, -1, -1));
+        panelSiswa.add(frmKontak, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 50, 140, -1));
+
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("No Telepon");
+        panelSiswa.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 50, -1, -1));
 
         tableSiswa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
