@@ -10,12 +10,12 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 import koneksi.*;
 
-public class Spp1 extends javax.swing.JInternalFrame {
+public class Spp extends javax.swing.JInternalFrame {
 
     Koneksi koneksi = new Koneksi();
     Page page = new Page();
     
-    public Spp1() {
+    public Spp() {
         initComponents();
         koneksi.model = (DefaultTableModel) tableSpp.getModel();
         koneksi.CreateKoneksi();
@@ -103,7 +103,6 @@ public class Spp1 extends javax.swing.JInternalFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 410, 190));
 
-        btnTambah.setBackground(new java.awt.Color(255, 255, 255));
         btnTambah.setForeground(new java.awt.Color(0, 102, 102));
         btnTambah.setText("Tambah");
         btnTambah.addActionListener(new java.awt.event.ActionListener() {
@@ -113,7 +112,6 @@ public class Spp1 extends javax.swing.JInternalFrame {
         });
         getContentPane().add(btnTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, -1, -1));
 
-        btnSimpan.setBackground(new java.awt.Color(255, 255, 255));
         btnSimpan.setForeground(new java.awt.Color(0, 102, 102));
         btnSimpan.setText("Simpan");
         btnSimpan.addActionListener(new java.awt.event.ActionListener() {
@@ -123,7 +121,6 @@ public class Spp1 extends javax.swing.JInternalFrame {
         });
         getContentPane().add(btnSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, 70, -1));
 
-        btnEdit.setBackground(new java.awt.Color(255, 255, 255));
         btnEdit.setForeground(new java.awt.Color(0, 102, 102));
         btnEdit.setText("Edit");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
@@ -133,7 +130,6 @@ public class Spp1 extends javax.swing.JInternalFrame {
         });
         getContentPane().add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 70, -1));
 
-        btnHapus.setBackground(new java.awt.Color(255, 255, 255));
         btnHapus.setForeground(new java.awt.Color(0, 102, 102));
         btnHapus.setText("Hapus");
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
@@ -143,7 +139,6 @@ public class Spp1 extends javax.swing.JInternalFrame {
         });
         getContentPane().add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 70, -1));
 
-        btnBatal.setBackground(new java.awt.Color(255, 255, 255));
         btnBatal.setForeground(new java.awt.Color(0, 102, 102));
         btnBatal.setText("Batal");
         btnBatal.addActionListener(new java.awt.event.ActionListener() {
@@ -153,7 +148,6 @@ public class Spp1 extends javax.swing.JInternalFrame {
         });
         getContentPane().add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, 70, -1));
 
-        btnKembali.setBackground(new java.awt.Color(255, 255, 255));
         btnKembali.setForeground(new java.awt.Color(0, 102, 102));
         btnKembali.setText("Kembali");
         btnKembali.addActionListener(new java.awt.event.ActionListener() {
@@ -246,7 +240,7 @@ public class Spp1 extends javax.swing.JInternalFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Spp1().setVisible(true);
+                new Spp().setVisible(true);
             }
         });
     }

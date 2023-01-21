@@ -16,12 +16,12 @@ import javax.swing.JOptionPane;
  *
  * @author User
  */
-public class Kelass extends javax.swing.JInternalFrame {
+public class Kelas extends javax.swing.JInternalFrame {
 
     Page page = new Page();
     Koneksi koneksi = new Koneksi();
     
-    public Kelass() {
+    public Kelas() {
         initComponents();
         koneksi.model = (DefaultTableModel) tableKelas.getModel();
         koneksi.CreateKoneksi();
@@ -98,7 +98,6 @@ public class Kelass extends javax.swing.JInternalFrame {
         frmJurusan.setForeground(new java.awt.Color(0, 102, 102));
         getContentPane().add(frmJurusan, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 117, 200, -1));
 
-        btnKembali.setBackground(new java.awt.Color(255, 255, 255));
         btnKembali.setForeground(new java.awt.Color(0, 102, 102));
         btnKembali.setText("kembali");
         btnKembali.addActionListener(new java.awt.event.ActionListener() {
@@ -108,7 +107,6 @@ public class Kelass extends javax.swing.JInternalFrame {
         });
         getContentPane().add(btnKembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, -1, -1));
 
-        btnTambah.setBackground(new java.awt.Color(255, 255, 255));
         btnTambah.setForeground(new java.awt.Color(0, 102, 102));
         btnTambah.setText("Tambah");
         btnTambah.addActionListener(new java.awt.event.ActionListener() {
@@ -118,7 +116,6 @@ public class Kelass extends javax.swing.JInternalFrame {
         });
         getContentPane().add(btnTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, -1, -1));
 
-        btnHapus.setBackground(new java.awt.Color(255, 255, 255));
         btnHapus.setForeground(new java.awt.Color(0, 102, 102));
         btnHapus.setText("Hapus");
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
@@ -128,7 +125,6 @@ public class Kelass extends javax.swing.JInternalFrame {
         });
         getContentPane().add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, -1, -1));
 
-        btnSimpan.setBackground(new java.awt.Color(255, 255, 255));
         btnSimpan.setForeground(new java.awt.Color(0, 102, 102));
         btnSimpan.setText("Simpan");
         btnSimpan.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +134,6 @@ public class Kelass extends javax.swing.JInternalFrame {
         });
         getContentPane().add(btnSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, -1, -1));
 
-        btnEdit.setBackground(new java.awt.Color(255, 255, 255));
         btnEdit.setForeground(new java.awt.Color(0, 102, 102));
         btnEdit.setText("Edit");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
@@ -169,7 +164,6 @@ public class Kelass extends javax.swing.JInternalFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 680, 180));
 
-        btnBatal.setBackground(new java.awt.Color(255, 255, 255));
         btnBatal.setForeground(new java.awt.Color(0, 102, 102));
         btnBatal.setText("Batal");
         btnBatal.addActionListener(new java.awt.event.ActionListener() {
@@ -285,7 +279,7 @@ public class Kelass extends javax.swing.JInternalFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new Kelass().setVisible(true);
+                new Kelas().setVisible(true);
             }
         });
     }

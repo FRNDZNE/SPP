@@ -470,7 +470,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void menuKelasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuKelasMouseClicked
         // TODO add your handling code here:
-         Kelass kelas = new Kelass();
+         Kelas kelas = new Kelas();
         jDesktopPane2.removeAll();
         jDesktopPane2.add(kelas).setVisible(true);
         
@@ -478,7 +478,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void menuAngkatanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuAngkatanMouseClicked
         // TODO add your handling code here:
-        Spp1 spp1 = new Spp1();
+        Spp spp1 = new Spp();
         jDesktopPane2.removeAll();
         jDesktopPane2.add(spp1).setVisible(true);
     }//GEN-LAST:event_menuAngkatanMouseClicked
