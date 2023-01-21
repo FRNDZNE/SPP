@@ -12,7 +12,7 @@ import Pages.*;
 public class Page {
     public void halamanHome()
     {
-        Home home = new Home();
+        login_petugas home = new login_petugas();
         home.setVisible(true);
     }
     public void halamanDashboard()

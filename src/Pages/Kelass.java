@@ -1,34 +1,34 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package Pages;
 
-import javax.swing.JOptionPane;
-import java.sql.*;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 import koneksi.*;
+import java.sql.*;
+import javax.swing.JOptionPane;
+
 
 /**
  *
- * @author Hafiz
+ * @author User
  */
-public class Kelas extends javax.swing.JFrame {
+public class Kelass extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Kelas
-     */
-    
-    
     Page page = new Page();
     Koneksi koneksi = new Koneksi();
     
-    
-    public Kelas() {
+    public Kelass() {
         initComponents();
         koneksi.model = (DefaultTableModel) tableKelas.getModel();
         koneksi.CreateKoneksi();
         
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+        BasicInternalFrameUI ui = (BasicInternalFrameUI)this.getUI();
+        ui.setNorthPane(null);
     }
 
     /**
@@ -40,31 +40,121 @@ public class Kelas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tableKelas = new javax.swing.JTable();
-        btnTambah = new javax.swing.JButton();
-        btnSimpan = new javax.swing.JButton();
-        btnEdit = new javax.swing.JButton();
-        btnHapus = new javax.swing.JButton();
-        btnBatal = new javax.swing.JButton();
-        id = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        frmId = new javax.swing.JTextField();
         frmKelas = new javax.swing.JTextField();
         frmJurusan = new javax.swing.JTextField();
         btnKembali = new javax.swing.JButton();
-        frmId = new javax.swing.JTextField();
+        btnTambah = new javax.swing.JButton();
+        btnHapus = new javax.swing.JButton();
+        btnSimpan = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableKelas = new javax.swing.JTable();
+        btnBatal = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
+        setBackground(new java.awt.Color(45, 116, 124));
+        setPreferredSize(new java.awt.Dimension(900, 550));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("ID");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 38, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Kelas");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 80, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Jurusan");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 120, -1, -1));
+
+        frmId.setForeground(new java.awt.Color(0, 102, 102));
+        frmId.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                frmIdMouseClicked(evt);
             }
         });
+        frmId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                frmIdActionPerformed(evt);
+            }
+        });
+        getContentPane().add(frmId, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 35, 200, -1));
 
+        frmKelas.setForeground(new java.awt.Color(0, 102, 102));
+        frmKelas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                frmKelasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(frmKelas, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 77, 200, -1));
+
+        frmJurusan.setForeground(new java.awt.Color(0, 102, 102));
+        getContentPane().add(frmJurusan, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 117, 200, -1));
+
+        btnKembali.setBackground(new java.awt.Color(255, 255, 255));
+        btnKembali.setForeground(new java.awt.Color(0, 102, 102));
+        btnKembali.setText("kembali");
+        btnKembali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKembaliActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnKembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, -1, -1));
+
+        btnTambah.setBackground(new java.awt.Color(255, 255, 255));
+        btnTambah.setForeground(new java.awt.Color(0, 102, 102));
+        btnTambah.setText("Tambah");
+        btnTambah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTambahActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, -1, -1));
+
+        btnHapus.setBackground(new java.awt.Color(255, 255, 255));
+        btnHapus.setForeground(new java.awt.Color(0, 102, 102));
+        btnHapus.setText("Hapus");
+        btnHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHapusActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, -1, -1));
+
+        btnSimpan.setBackground(new java.awt.Color(255, 255, 255));
+        btnSimpan.setForeground(new java.awt.Color(0, 102, 102));
+        btnSimpan.setText("Simpan");
+        btnSimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSimpanActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, -1, -1));
+
+        btnEdit.setBackground(new java.awt.Color(255, 255, 255));
+        btnEdit.setForeground(new java.awt.Color(0, 102, 102));
+        btnEdit.setText("Edit");
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 70, -1));
+
+        tableKelas.setForeground(new java.awt.Color(0, 102, 102));
         tableKelas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
                 "No", "Kelas", "Jurusan"
@@ -74,131 +164,25 @@ public class Kelas extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableKelasMouseClicked(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                tableKelasMouseEntered(evt);
-            }
         });
         jScrollPane1.setViewportView(tableKelas);
 
-        btnTambah.setText("Tambah");
-        btnTambah.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTambahActionPerformed(evt);
-            }
-        });
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 680, 180));
 
-        btnSimpan.setText("Simpan");
-        btnSimpan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSimpanActionPerformed(evt);
-            }
-        });
-
-        btnEdit.setText("Edit");
-        btnEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditActionPerformed(evt);
-            }
-        });
-
-        btnHapus.setText("Hapus");
-        btnHapus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHapusActionPerformed(evt);
-            }
-        });
-
+        btnBatal.setBackground(new java.awt.Color(255, 255, 255));
+        btnBatal.setForeground(new java.awt.Color(0, 102, 102));
         btnBatal.setText("Batal");
         btnBatal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBatalActionPerformed(evt);
             }
         });
-
-        id.setText("ID");
-
-        jLabel2.setText("Kelas");
-
-        jLabel3.setText("Jurusan");
-
-        btnKembali.setText("Kembali");
-        btnKembali.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnKembaliActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(331, 331, 331)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(frmKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(frmJurusan, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(frmId, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(btnTambah)
-                            .addGap(18, 18, 18)
-                            .addComponent(btnSimpan)
-                            .addGap(18, 18, 18)
-                            .addComponent(btnEdit)
-                            .addGap(18, 18, 18)
-                            .addComponent(btnHapus)
-                            .addGap(18, 18, 18)
-                            .addComponent(btnBatal))))
-                .addContainerGap(168, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnKembali)
-                .addGap(48, 48, 48))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(btnKembali)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(id)
-                    .addComponent(frmId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(frmKelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(frmJurusan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnTambah)
-                    .addComponent(btnSimpan)
-                    .addComponent(btnEdit)
-                    .addComponent(btnHapus)
-                    .addComponent(btnBatal))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        getContentPane().add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 280, -1, -1));
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+    
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {                                  
         // Starting Form
         frmId.setEnabled(false);
         frmKelas.setEnabled(false);
@@ -211,10 +195,28 @@ public class Kelas extends javax.swing.JFrame {
         readData();
         findId();
         
-    }//GEN-LAST:event_formWindowOpened
+    }                                                                      
+                         
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
+        // TODO add your handling code here:
+        hapusData();
+    }//GEN-LAST:event_btnHapusActionPerformed
+
+    private void frmIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_frmIdMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_frmIdMouseClicked
+
+    private void frmIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_frmIdActionPerformed
+
+    private void frmKelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmKelasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_frmKelasActionPerformed
 
     private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
         // TODO add your handling code here:
+         // TODO add your handling code here:
         frmId.setEnabled(true);
         frmKelas.setEnabled(true);
         frmJurusan.setEnabled(true);
@@ -226,16 +228,15 @@ public class Kelas extends javax.swing.JFrame {
         koneksi.statusSimpan = true;
     }//GEN-LAST:event_btnTambahActionPerformed
 
+    private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
+        // TODO add your handling code here:
+        saveData();
+    }//GEN-LAST:event_btnSimpanActionPerformed
+
     private void btnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalActionPerformed
         // TODO add your handling code here:
         resetForm();
     }//GEN-LAST:event_btnBatalActionPerformed
-
-    private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
-        // TODO add your handling code here:
-        saveData();
-        
-    }//GEN-LAST:event_btnSimpanActionPerformed
 
     private void btnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembaliActionPerformed
         // TODO add your handling code here:
@@ -243,7 +244,6 @@ public class Kelas extends javax.swing.JFrame {
         page.halamanDashboard();
     }//GEN-LAST:event_btnKembaliActionPerformed
 
-    
     private void tableKelasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableKelasMouseClicked
         // TODO add your handling code here:
         mouseClicked();
@@ -253,15 +253,6 @@ public class Kelas extends javax.swing.JFrame {
         // TODO add your handling code here:
         editData();
     }//GEN-LAST:event_btnEditActionPerformed
-
-    private void tableKelasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableKelasMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tableKelasMouseEntered
-
-    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
-        // TODO add your handling code here:
-        hapusData();
-    }//GEN-LAST:event_btnHapusActionPerformed
 
     /**
      * @param args the command line arguments
@@ -294,11 +285,11 @@ public class Kelas extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new Kelas().setVisible(true);
+                new Kelass().setVisible(true);
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBatal;
     private javax.swing.JButton btnEdit;
@@ -309,14 +300,15 @@ public class Kelas extends javax.swing.JFrame {
     private javax.swing.JTextField frmId;
     private javax.swing.JTextField frmJurusan;
     private javax.swing.JTextField frmKelas;
-    private javax.swing.JLabel id;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableKelas;
     // End of variables declaration//GEN-END:variables
+
     // save Data terdapat query untuk menyimpan dan mengupdate data
-    private void saveData()
+     private void saveData()
     {
         if (frmId.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Masukkan Id", "Informasi", JOptionPane.INFORMATION_MESSAGE);
@@ -347,6 +339,9 @@ public class Kelas extends javax.swing.JFrame {
             readData();
         }
     }
+    
+    
+    
     
     private void editData()
     {

@@ -32,6 +32,7 @@ public class TampilanAwal extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jBMasuk = new javax.swing.JButton();
+        Exit = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -69,6 +70,16 @@ public class TampilanAwal extends javax.swing.JFrame {
         });
         getContentPane().add(jBMasuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 500, 170, 50));
 
+        Exit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Exit.setForeground(new java.awt.Color(255, 255, 255));
+        Exit.setText("X");
+        Exit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ExitMouseClicked(evt);
+            }
+        });
+        getContentPane().add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 0, -1, -1));
+
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/awal1.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -82,6 +93,11 @@ public class TampilanAwal extends javax.swing.JFrame {
             login_petugas login = new login_petugas();
             login.setVisible(true);
     }//GEN-LAST:event_jBMasukActionPerformed
+
+    private void ExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_ExitMouseClicked
 
     /**
      * @param args the command line arguments
@@ -119,6 +135,7 @@ public class TampilanAwal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Exit;
     private javax.swing.JButton jBMasuk;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

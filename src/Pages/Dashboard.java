@@ -3,7 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Pages;
+
+import javax.swing.JOptionPane;
+import java.awt.Color;
+import javax.swing.JOptionPane;
 import koneksi.Page;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 /**
  *
  * @author Hafiz
@@ -13,10 +18,25 @@ public class Dashboard extends javax.swing.JFrame {
     /**
      * Creates new form Dashboard
      */
-    private Home home = new Home();
- 
+    
+    
+    Color DefaultColor, ClickedColor;
+    
     public Dashboard() {
         initComponents();
+        DefaultColor = new Color(131,191,198);
+        ClickedColor = new Color(45,116,124);
+        
+        menuKelas = new javax.swing.JPanel();
+        
+        //set defalut color to pan on run time
+        panelBeranda.setBackground(DefaultColor);
+        menuKelas.setBackground(DefaultColor);
+        menuSiswa.setBackground(DefaultColor);
+        menuPembayaran.setBackground(DefaultColor);
+        menuAngkatan.setBackground(DefaultColor);
+        menuTentang.setBackground(DefaultColor);
+        menuKeluar.setBackground(DefaultColor);
     }
 
     /**
@@ -28,83 +48,301 @@ public class Dashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        btnKeluar = new javax.swing.JButton();
-        btnKelas = new javax.swing.JButton();
-        btnSiswa = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        panelBeranda = new javax.swing.JPanel();
+        menuBeranda = new javax.swing.JLabel();
+        menuSiswa = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        menuKelas = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        menuPembayaran = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        menuAngkatan = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        menuTentang = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        menuKeluar = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jDesktopPane2 = new javax.swing.JDesktopPane();
+        Exit = new javax.swing.JLabel();
+        menuName = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Halaman Dashboard");
+        jPanel2.setBackground(new java.awt.Color(131, 191, 198));
+        jPanel2.setFocusable(false);
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnKeluar.setText("Keluar");
-        btnKeluar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnKeluarActionPerformed(evt);
+        panelBeranda.setBackground(new java.awt.Color(131, 191, 198));
+        panelBeranda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelBerandaMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelBerandaMousePressed(evt);
             }
         });
 
-        btnKelas.setText("Kelas");
-        btnKelas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnKelasActionPerformed(evt);
-            }
-        });
+        menuBeranda.setBackground(new java.awt.Color(131, 191, 198));
+        menuBeranda.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        menuBeranda.setForeground(new java.awt.Color(255, 255, 255));
+        menuBeranda.setText("BERANDA");
 
-        btnSiswa.setText("Siswa");
-        btnSiswa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSiswaActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnKeluar))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(81, 81, 81)
-                            .addComponent(btnKelas)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSiswa))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(177, 177, 177)
-                            .addComponent(jLabel1))))
-                .addContainerGap(186, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(jLabel1)
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnKelas)
-                    .addComponent(btnSiswa))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
-                .addComponent(btnKeluar)
+        javax.swing.GroupLayout panelBerandaLayout = new javax.swing.GroupLayout(panelBeranda);
+        panelBeranda.setLayout(panelBerandaLayout);
+        panelBerandaLayout.setHorizontalGroup(
+            panelBerandaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBerandaLayout.createSequentialGroup()
+                .addContainerGap(53, Short.MAX_VALUE)
+                .addComponent(menuBeranda, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47))
         );
+        panelBerandaLayout.setVerticalGroup(
+            panelBerandaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(menuBeranda, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(panelBeranda, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 170, 30));
+
+        menuSiswa.setBackground(new java.awt.Color(131, 191, 198));
+        menuSiswa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuSiswaMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                menuSiswaMousePressed(evt);
+            }
+        });
+
+        jLabel3.setBackground(new java.awt.Color(131, 191, 198));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("SISWA");
+
+        javax.swing.GroupLayout menuSiswaLayout = new javax.swing.GroupLayout(menuSiswa);
+        menuSiswa.setLayout(menuSiswaLayout);
+        menuSiswaLayout.setHorizontalGroup(
+            menuSiswaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menuSiswaLayout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(jLabel3)
+                .addContainerGap(65, Short.MAX_VALUE))
+        );
+        menuSiswaLayout.setVerticalGroup(
+            menuSiswaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(menuSiswa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
+
+        menuKelas.setBackground(new java.awt.Color(131, 191, 198));
+        menuKelas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuKelasMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                menuKelasMousePressed(evt);
+            }
+        });
+
+        jLabel4.setBackground(new java.awt.Color(131, 191, 198));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("KELAS");
+
+        javax.swing.GroupLayout menuKelasLayout = new javax.swing.GroupLayout(menuKelas);
+        menuKelas.setLayout(menuKelasLayout);
+        menuKelasLayout.setHorizontalGroup(
+            menuKelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menuKelasLayout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addComponent(jLabel4)
+                .addContainerGap(67, Short.MAX_VALUE))
+        );
+        menuKelasLayout.setVerticalGroup(
+            menuKelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(menuKelas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, -1, -1));
+
+        menuPembayaran.setBackground(new java.awt.Color(131, 191, 198));
+        menuPembayaran.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuPembayaranMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                menuPembayaranMousePressed(evt);
+            }
+        });
+
+        jLabel5.setBackground(new java.awt.Color(131, 191, 198));
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("PEMBAYARAN");
+
+        javax.swing.GroupLayout menuPembayaranLayout = new javax.swing.GroupLayout(menuPembayaran);
+        menuPembayaran.setLayout(menuPembayaranLayout);
+        menuPembayaranLayout.setHorizontalGroup(
+            menuPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menuPembayaranLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jLabel5)
+                .addContainerGap(43, Short.MAX_VALUE))
+        );
+        menuPembayaranLayout.setVerticalGroup(
+            menuPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(menuPembayaran, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, -1, -1));
+
+        menuAngkatan.setBackground(new java.awt.Color(131, 191, 198));
+        menuAngkatan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuAngkatanMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                menuAngkatanMousePressed(evt);
+            }
+        });
+
+        jLabel6.setBackground(new java.awt.Color(131, 191, 198));
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("SPP");
+
+        javax.swing.GroupLayout menuAngkatanLayout = new javax.swing.GroupLayout(menuAngkatan);
+        menuAngkatan.setLayout(menuAngkatanLayout);
+        menuAngkatanLayout.setHorizontalGroup(
+            menuAngkatanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menuAngkatanLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(jLabel6)
+                .addContainerGap(76, Short.MAX_VALUE))
+        );
+        menuAngkatanLayout.setVerticalGroup(
+            menuAngkatanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(menuAngkatan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, -1, -1));
+
+        menuTentang.setBackground(new java.awt.Color(131, 191, 198));
+        menuTentang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuTentangMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                menuTentangMousePressed(evt);
+            }
+        });
+
+        jLabel7.setBackground(new java.awt.Color(131, 191, 198));
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("TENTANG");
+
+        javax.swing.GroupLayout menuTentangLayout = new javax.swing.GroupLayout(menuTentang);
+        menuTentang.setLayout(menuTentangLayout);
+        menuTentangLayout.setHorizontalGroup(
+            menuTentangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menuTentangLayout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(jLabel7)
+                .addContainerGap(62, Short.MAX_VALUE))
+        );
+        menuTentangLayout.setVerticalGroup(
+            menuTentangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(menuTentang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, -1, -1));
+
+        menuKeluar.setBackground(new java.awt.Color(131, 191, 198));
+        menuKeluar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuKeluarMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                menuKeluarMousePressed(evt);
+            }
+        });
+
+        jLabel8.setBackground(new java.awt.Color(131, 191, 198));
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("KELUAR");
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout menuKeluarLayout = new javax.swing.GroupLayout(menuKeluar);
+        menuKeluar.setLayout(menuKeluarLayout);
+        menuKeluarLayout.setHorizontalGroup(
+            menuKeluarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuKeluarLayout.createSequentialGroup()
+                .addContainerGap(62, Short.MAX_VALUE)
+                .addComponent(jLabel8)
+                .addGap(60, 60, 60))
+        );
+        menuKeluarLayout.setVerticalGroup(
+            menuKeluarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(menuKeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 170, -1));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 170, 450));
+
+        jDesktopPane2.setBackground(new java.awt.Color(45, 116, 124));
+
+        javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
+        jDesktopPane2.setLayout(jDesktopPane2Layout);
+        jDesktopPane2Layout.setHorizontalGroup(
+            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 880, Short.MAX_VALUE)
+        );
+        jDesktopPane2Layout.setVerticalGroup(
+            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 470, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jDesktopPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 880, 470));
+
+        Exit.setBackground(new java.awt.Color(255, 255, 255));
+        Exit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Exit.setForeground(new java.awt.Color(0, 51, 51));
+        Exit.setText("X");
+        Exit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ExitMouseClicked(evt);
+            }
+        });
+        getContentPane().add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 0, -1, -1));
+
+        menuName.setBackground(new java.awt.Color(255, 255, 255));
+        menuName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        menuName.setForeground(new java.awt.Color(0, 102, 102));
+        menuName.setText("BERANDA");
+        getContentPane().add(menuName, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 94, 140, 20));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/dashboard.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1090, 610));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKeluarActionPerformed
-        // TODO add your handling code here:
-        dispose();
-        home.setVisible(true);
-    }//GEN-LAST:event_btnKeluarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
@@ -112,16 +350,157 @@ public class Dashboard extends javax.swing.JFrame {
         
     }//GEN-LAST:event_formWindowOpened
 
-    private void btnKelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKelasActionPerformed
+    private void panelBerandaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBerandaMouseClicked
         // TODO add your handling code here:
-        dispose();
-        Kelas kelas = new Kelas();
-        kelas.setVisible(true);
-    }//GEN-LAST:event_btnKelasActionPerformed
+        
+        
+    }//GEN-LAST:event_panelBerandaMouseClicked
 
-    private void btnSiswaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiswaActionPerformed
+    private void panelBerandaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBerandaMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSiswaActionPerformed
+        panelBeranda.setBackground(ClickedColor);
+        menuKelas.setBackground(DefaultColor);
+        menuSiswa.setBackground(DefaultColor);
+        menuPembayaran.setBackground(DefaultColor);
+        menuAngkatan.setBackground(DefaultColor);
+        menuTentang.setBackground(DefaultColor);
+        menuKeluar.setBackground(DefaultColor);
+        
+        menuName.setText("BERANDA");
+    }//GEN-LAST:event_panelBerandaMousePressed
+
+    private void menuSiswaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSiswaMousePressed
+        // TODO add your handling code here:
+        panelBeranda.setBackground(DefaultColor);
+        menuKelas.setBackground(DefaultColor);
+        menuSiswa.setBackground(ClickedColor);
+        menuPembayaran.setBackground(DefaultColor);
+        menuAngkatan.setBackground(DefaultColor);
+        menuTentang.setBackground(DefaultColor);
+        menuKeluar.setBackground(DefaultColor);
+        
+        menuName.setText("SISWA");
+    }//GEN-LAST:event_menuSiswaMousePressed
+
+    private void menuKelasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuKelasMousePressed
+        // TODO add your handling code here:
+        menuKelas.setBackground(ClickedColor);
+        panelBeranda.setBackground(DefaultColor);
+        menuSiswa.setBackground(DefaultColor);
+        menuPembayaran.setBackground(DefaultColor);
+        menuAngkatan.setBackground(DefaultColor);
+        menuTentang.setBackground(DefaultColor);
+        menuKeluar.setBackground(DefaultColor);
+        
+        menuName.setText("KELAS");
+    }//GEN-LAST:event_menuKelasMousePressed
+
+    private void menuPembayaranMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuPembayaranMousePressed
+        // TODO add your handling code here:
+        panelBeranda.setBackground(DefaultColor);
+        menuKelas.setBackground(DefaultColor);
+        menuSiswa.setBackground(DefaultColor);
+        menuPembayaran.setBackground(ClickedColor);
+        menuAngkatan.setBackground(DefaultColor);
+        menuTentang.setBackground(DefaultColor);
+        menuKeluar.setBackground(DefaultColor);
+        
+        menuName.setText("PEMBAYARAN");
+    }//GEN-LAST:event_menuPembayaranMousePressed
+
+    private void menuAngkatanMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuAngkatanMousePressed
+        // TODO add your handling code here:
+        panelBeranda.setBackground(DefaultColor);
+        menuKelas.setBackground(DefaultColor);
+        menuSiswa.setBackground(DefaultColor);
+        menuPembayaran.setBackground(DefaultColor);
+        menuAngkatan.setBackground(ClickedColor);
+        menuTentang.setBackground(DefaultColor);
+        menuKeluar.setBackground(DefaultColor);
+        
+        menuName.setText("SPP");
+    }//GEN-LAST:event_menuAngkatanMousePressed
+
+    private void menuTentangMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuTentangMousePressed
+        // TODO add your handling code here:
+        panelBeranda.setBackground(DefaultColor);
+        menuKelas.setBackground(DefaultColor);
+        menuSiswa.setBackground(DefaultColor);
+        menuPembayaran.setBackground(DefaultColor);
+        menuAngkatan.setBackground(DefaultColor);
+        menuTentang.setBackground(ClickedColor);
+        menuKeluar.setBackground(DefaultColor);
+        
+        menuName.setText("TENTANG APLIKASI");
+    }//GEN-LAST:event_menuTentangMousePressed
+
+    private void menuKeluarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuKeluarMousePressed
+        // TODO add your handling code here:
+        
+        panelBeranda.setBackground(DefaultColor);
+        menuKelas.setBackground(DefaultColor);
+        menuSiswa.setBackground(DefaultColor);
+        menuPembayaran.setBackground(DefaultColor);
+        menuAngkatan.setBackground(DefaultColor);
+        menuTentang.setBackground(DefaultColor);
+        menuKeluar.setBackground(ClickedColor);
+        
+    }//GEN-LAST:event_menuKeluarMousePressed
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void menuKeluarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuKeluarMouseClicked
+        // TODO add your handling code here:
+        login_petugas login = new login_petugas();
+        login.setVisible(true);
+        dispose();
+        
+    }//GEN-LAST:event_menuKeluarMouseClicked
+
+    private void menuSiswaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSiswaMouseClicked
+        // TODO add your handling code here:
+       Siswaa siswa = new Siswaa();
+        jDesktopPane2.removeAll();
+        jDesktopPane2.add(siswa).setVisible(true);
+        
+    }//GEN-LAST:event_menuSiswaMouseClicked
+
+    private void menuKelasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuKelasMouseClicked
+        // TODO add your handling code here:
+         Kelass kelas = new Kelass();
+        jDesktopPane2.removeAll();
+        jDesktopPane2.add(kelas).setVisible(true);
+        
+    }//GEN-LAST:event_menuKelasMouseClicked
+
+    private void menuAngkatanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuAngkatanMouseClicked
+        // TODO add your handling code here:
+        Spp1 spp1 = new Spp1();
+        jDesktopPane2.removeAll();
+        jDesktopPane2.add(spp1).setVisible(true);
+    }//GEN-LAST:event_menuAngkatanMouseClicked
+
+    private void ExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_ExitMouseClicked
+
+    private void menuTentangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuTentangMouseClicked
+        // TODO add your handling code here:
+        Tentang tentang = new Tentang();
+        jDesktopPane2.removeAll();
+        jDesktopPane2.add(tentang).setVisible(true);
+    }//GEN-LAST:event_menuTentangMouseClicked
+
+    private void menuPembayaranMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuPembayaranMouseClicked
+        // TODO add your handling code here:
+        Pembayarann pembayaran = new Pembayarann();
+        jDesktopPane2.removeAll();
+        jDesktopPane2.add(pembayaran).setVisible(true);
+    }//GEN-LAST:event_menuPembayaranMouseClicked
 
     /**
      * @param args the command line arguments
@@ -159,10 +538,25 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnKelas;
-    private javax.swing.JButton btnKeluar;
-    private javax.swing.JButton btnSiswa;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel Exit;
+    private javax.swing.JDesktopPane jDesktopPane2;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel menuAngkatan;
+    private javax.swing.JLabel menuBeranda;
+    private javax.swing.JPanel menuKelas;
+    private javax.swing.JPanel menuKeluar;
+    private javax.swing.JLabel menuName;
+    private javax.swing.JPanel menuPembayaran;
+    private javax.swing.JPanel menuSiswa;
+    private javax.swing.JPanel menuTentang;
+    private javax.swing.JPanel panelBeranda;
     // End of variables declaration//GEN-END:variables
    
 }
