@@ -7,8 +7,10 @@ package Pages;
 import javax.swing.JOptionPane;
 import java.awt.Color;
 import javax.swing.JOptionPane;
-import koneksi.Page;
+import koneksi.*;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import java.sql.*;
+
 
 /**
  *
@@ -21,7 +23,7 @@ public class Dashboard extends javax.swing.JFrame {
      * Creates new form Dashboard
      */
     
-    
+    Koneksi koneksi = new Koneksi();
     Color DefaultColor, DefaultColor2, ClickedColor, ClickedColor2;
     
     public Dashboard() {
@@ -72,7 +74,10 @@ public class Dashboard extends javax.swing.JFrame {
         menuKeluar = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jDesktopPane2 = new javax.swing.JDesktopPane();
-        jLabel1 = new javax.swing.JLabel();
+        totalSiswa = new javax.swing.JLabel();
+        totalKelas = new javax.swing.JLabel();
+        jmlhJurusan = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         panelExit = new javax.swing.JPanel();
         Exit = new javax.swing.JLabel();
         menuName = new javax.swing.JLabel();
@@ -122,7 +127,7 @@ public class Dashboard extends javax.swing.JFrame {
         );
         panelBerandaLayout.setVerticalGroup(
             panelBerandaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(menuBeranda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(menuBeranda, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
         jPanel2.add(panelBeranda, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 180, 30));
@@ -340,19 +345,49 @@ public class Dashboard extends javax.swing.JFrame {
 
         jDesktopPane2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/beranda.png"))); // NOI18N
+        totalSiswa.setForeground(new java.awt.Color(0, 51, 51));
+        totalSiswa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        totalSiswa.setText("0");
 
-        jDesktopPane2.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        totalKelas.setForeground(new java.awt.Color(0, 51, 51));
+        totalKelas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        totalKelas.setText("0");
+
+        jmlhJurusan.setForeground(new java.awt.Color(0, 51, 51));
+        jmlhJurusan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jmlhJurusan.setText("0");
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/beranda.png"))); // NOI18N
+
+        jDesktopPane2.setLayer(totalSiswa, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(totalKelas, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(jmlhJurusan, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(jLabel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
         jDesktopPane2.setLayout(jDesktopPane2Layout);
         jDesktopPane2Layout.setHorizontalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1)
+            .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                .addGap(740, 740, 740)
+                .addComponent(jmlhJurusan, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                .addGap(430, 430, 430)
+                .addComponent(totalKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addComponent(totalSiswa, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel10)
         );
         jDesktopPane2Layout.setVerticalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1)
+            .addComponent(jLabel10)
+            .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jmlhJurusan)
+                    .addComponent(totalKelas)
+                    .addComponent(totalSiswa, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         getContentPane().add(jDesktopPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 900, 480));
@@ -392,9 +427,9 @@ public class Dashboard extends javax.swing.JFrame {
             .addGap(0, 30, Short.MAX_VALUE)
             .addGroup(panelExitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelExitLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 10, Short.MAX_VALUE)
                     .addComponent(Exit)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 10, Short.MAX_VALUE)))
         );
         panelExitLayout.setVerticalGroup(
             panelExitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -430,9 +465,7 @@ public class Dashboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
-        
-        
+        // TODO add your handling code here:        
     }//GEN-LAST:event_formWindowOpened
 
     private void panelBerandaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBerandaMouseClicked
@@ -758,7 +791,7 @@ public class Dashboard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Exit;
     private javax.swing.JDesktopPane jDesktopPane2;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -768,6 +801,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jmlhJurusan;
     private javax.swing.JPanel menuAngkatan;
     private javax.swing.JLabel menuBeranda;
     private javax.swing.JPanel menuKelas;
@@ -779,6 +813,9 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel panelBeranda;
     private javax.swing.JPanel panelExit;
     private javax.swing.JLabel profilPetugas;
+    private javax.swing.JLabel totalKelas;
+    private javax.swing.JLabel totalSiswa;
     // End of variables declaration//GEN-END:variables
    
+    
 }

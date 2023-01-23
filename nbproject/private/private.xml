@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/SPP.git/src/Pages/Dashboardd.java</file>
-            <file>file:/C:/SPP.git/src/Pages/TampilanAwal.java</file>
-            <file>file:/C:/SPP.git/src/Pages/profilPetugas.java</file>
-            <file>file:/C:/SPP.git/src/Pages/login_petugas.java</file>
-            <file>file:/C:/SPP.git/src/Pages/Kelass.java</file>
+            <file>file:/C:/SPP.git/src/Pages/Login.java</file>
+            <file>file:/C:/SPP.git/src/Pages/Beranda.java</file>
+            <file>file:/C:/SPP.git/src/Pages/Kelas.java</file>
+            <file>file:/C:/SPP.git/src/Pages/Dashboard.java</file>
+            <file>file:/C:/SPP.git/src/Pages/Angkatan.java</file>
         </group>
     </open-files>
 </project-private>

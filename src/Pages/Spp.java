@@ -49,32 +49,34 @@ public class Spp extends javax.swing.JInternalFrame {
         btnBatal = new javax.swing.JButton();
         btnKembali = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(45, 116, 124));
+        setBackground(new java.awt.Color(204, 204, 204));
         setPreferredSize(new java.awt.Dimension(880, 470));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 51, 51));
         jLabel1.setText("No");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(0, 51, 51));
         jLabel2.setText("Angkatan");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(0, 51, 51));
         jLabel3.setText("Nominal");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
-        frmId.setForeground(new java.awt.Color(0, 102, 102));
+        frmId.setBackground(new java.awt.Color(0, 51, 51));
+        frmId.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(frmId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 160, -1));
 
         frmAngkatan.setForeground(new java.awt.Color(0, 102, 102));
         getContentPane().add(frmAngkatan, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 160, -1));
 
-        frmNominal.setForeground(new java.awt.Color(0, 102, 102));
+        frmNominal.setBackground(new java.awt.Color(0, 51, 51));
+        frmNominal.setForeground(new java.awt.Color(255, 255, 255));
         frmNominal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 frmNominalActionPerformed(evt);
@@ -103,7 +105,8 @@ public class Spp extends javax.swing.JInternalFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 410, 190));
 
-        btnTambah.setForeground(new java.awt.Color(0, 102, 102));
+        btnTambah.setBackground(new java.awt.Color(0, 51, 51));
+        btnTambah.setForeground(new java.awt.Color(255, 255, 255));
         btnTambah.setText("Tambah");
         btnTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,7 +124,8 @@ public class Spp extends javax.swing.JInternalFrame {
         });
         getContentPane().add(btnSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, 70, -1));
 
-        btnEdit.setForeground(new java.awt.Color(0, 102, 102));
+        btnEdit.setBackground(new java.awt.Color(0, 51, 51));
+        btnEdit.setForeground(new java.awt.Color(255, 255, 255));
         btnEdit.setText("Edit");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,7 +143,8 @@ public class Spp extends javax.swing.JInternalFrame {
         });
         getContentPane().add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 70, -1));
 
-        btnBatal.setForeground(new java.awt.Color(0, 102, 102));
+        btnBatal.setBackground(new java.awt.Color(0, 51, 51));
+        btnBatal.setForeground(new java.awt.Color(255, 255, 255));
         btnBatal.setText("Batal");
         btnBatal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

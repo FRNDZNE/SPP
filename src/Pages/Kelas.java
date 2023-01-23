@@ -149,10 +149,7 @@ public class Kelas extends javax.swing.JInternalFrame {
         tableKelas.setForeground(new java.awt.Color(0, 102, 102));
         tableKelas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "No", "Kelas", "Jurusan"

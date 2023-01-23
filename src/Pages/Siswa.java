@@ -154,10 +154,7 @@ public class Siswa extends javax.swing.JInternalFrame {
         tableSiswa.setForeground(new java.awt.Color(0, 102, 102));
         tableSiswa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "No", "NIS", "Nama", "Kelas", "Angkatan"
@@ -235,17 +232,7 @@ public class Siswa extends javax.swing.JInternalFrame {
 
     private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
         // TODO add your handling code here:
-        frmNIS.setEnabled(true);
-        frmNama.setEnabled(true);
-        frmKelas.setEnabled(true);
-        frmAngkatan.setEnabled(true);
-        frmAlamat.setEnabled(true);
-        btnTambah.setEnabled(false);
-        btnSimpan.setEnabled(true);
-        btnEdit.setEnabled(false);
-        btnHapus.setEnabled(false);
-        btnBatal.setEnabled(true);
-        koneksi.statusSimpan = true;
+        
     }//GEN-LAST:event_btnTambahActionPerformed
 
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed

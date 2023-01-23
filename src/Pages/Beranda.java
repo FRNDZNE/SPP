@@ -32,20 +32,30 @@ public class Beranda extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        totalSiswa = new javax.swing.JLabel();
+        totalKelas = new javax.swing.JLabel();
+        jmlhJurusan = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/beranda.png"))); // NOI18N
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2)
-        );
+        totalSiswa.setForeground(new java.awt.Color(0, 51, 51));
+        totalSiswa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        totalSiswa.setText("0");
+        getContentPane().add(totalSiswa, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 40, -1));
+
+        totalKelas.setForeground(new java.awt.Color(0, 51, 51));
+        totalKelas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        totalKelas.setText("0");
+        getContentPane().add(totalKelas, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, 40, -1));
+
+        jmlhJurusan.setForeground(new java.awt.Color(0, 51, 51));
+        jmlhJurusan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jmlhJurusan.setText("0");
+        getContentPane().add(jmlhJurusan, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 120, 30, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/beranda.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, -1));
 
         setBounds(0, 0, 926, 542);
     }// </editor-fold>//GEN-END:initComponents
@@ -85,5 +95,8 @@ public class Beranda extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jmlhJurusan;
+    private javax.swing.JLabel totalKelas;
+    private javax.swing.JLabel totalSiswa;
     // End of variables declaration//GEN-END:variables
 }
