@@ -255,8 +255,6 @@ public class Kelas extends javax.swing.JInternalFrame {
         btnHapus.setEnabled(false);
         btnBatal.setEnabled(false);
         readData();
-        findId();
-        
     }                                                                      
                          
     private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
