@@ -1,29 +1,32 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package Pages;
 
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
+import koneksi.Koneksi;
+import koneksi.Page;
 import java.sql.*;
-import javax.swing.JOptionPane;
-import koneksi.*;
 
 /**
  *
- * @author Hafiz
+ * @author User
  */
-public class Siswa extends javax.swing.JFrame {
+public class Siswaa extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Siswa
-     */
     private Koneksi koneksi = new Koneksi();
     private Page page = new Page();
-    public Siswa() {
+    
+    public Siswaa() {
         initComponents();
         koneksi.model = (DefaultTableModel) tableSiswa.getModel();
         koneksi.CreateKoneksi();
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+        BasicInternalFrameUI ui = (BasicInternalFrameUI)this.getUI();
+        ui.setNorthPane(null);
     }
 
     /**
@@ -36,75 +39,85 @@ public class Siswa extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        frmNIS = new javax.swing.JTextField();
+        frmNama = new javax.swing.JTextField();
+        btnBatal = new javax.swing.JButton();
+        btnTambah = new javax.swing.JButton();
+        btnHapus = new javax.swing.JButton();
+        btnSimpan = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableSiswa = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
-        frmAngkatan = new javax.swing.JComboBox<>();
-        frmKelas = new javax.swing.JComboBox<>();
-        frmNama = new javax.swing.JTextField();
-        frmNIS = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        btnBatal = new javax.swing.JButton();
-        btnHapus = new javax.swing.JButton();
-        btnEdit = new javax.swing.JButton();
-        btnSimpan = new javax.swing.JButton();
-        btnTambah = new javax.swing.JButton();
-        btnCari = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        frmAlamat = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        frmNIS = new javax.swing.JTextField();
-        frmNama = new javax.swing.JTextField();
-        frmKelas = new javax.swing.JComboBox<>();
-        frmKontak = new javax.swing.JTextField();
+        frmKotak = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         frmAlamat = new javax.swing.JTextArea();
-        frmAngkatan = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
+        TFCari = new javax.swing.JTextField();
         btnCari = new javax.swing.JButton();
-        btnTambah = new javax.swing.JButton();
-        btnSimpan = new javax.swing.JButton();
-        btnEdit = new javax.swing.JButton();
-        btnHapus = new javax.swing.JButton();
-        btnBatal = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
+        frmKelas = new javax.swing.JComboBox<>();
+        frmAngkatan = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
+        setBackground(new java.awt.Color(45, 116, 124));
+        setPreferredSize(new java.awt.Dimension(900, 550));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("NIS");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Kelas");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Nama");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+
+        frmNIS.setForeground(new java.awt.Color(0, 102, 102));
+        getContentPane().add(frmNIS, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 200, -1));
+
+        frmNama.setForeground(new java.awt.Color(0, 102, 102));
+        getContentPane().add(frmNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 200, -1));
+
+        btnBatal.setBackground(new java.awt.Color(255, 255, 255));
+        btnBatal.setForeground(new java.awt.Color(0, 102, 102));
+        btnBatal.setText("Batal");
+        getContentPane().add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, -1, -1));
+
+        btnTambah.setBackground(new java.awt.Color(255, 255, 255));
+        btnTambah.setForeground(new java.awt.Color(0, 102, 102));
+        btnTambah.setText("Tambah");
+        getContentPane().add(btnTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, -1, -1));
+
+        btnHapus.setBackground(new java.awt.Color(255, 255, 255));
+        btnHapus.setForeground(new java.awt.Color(0, 102, 102));
+        btnHapus.setText("Hapus");
+        btnHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHapusActionPerformed(evt);
             }
         });
+        getContentPane().add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, -1, -1));
 
-        jLabel1.setText("Halaman Siswa");
+        btnSimpan.setBackground(new java.awt.Color(255, 255, 255));
+        btnSimpan.setForeground(new java.awt.Color(0, 102, 102));
+        btnSimpan.setText("Simpan");
+        getContentPane().add(btnSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, -1, -1));
 
-        jLabel2.setText("Cari");
-        panelSiswa.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 33, -1));
+        btnEdit.setBackground(new java.awt.Color(255, 255, 255));
+        btnEdit.setForeground(new java.awt.Color(0, 102, 102));
+        btnEdit.setText("Edit");
+        getContentPane().add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, 70, -1));
 
-        frmAlamat.setColumns(20);
-        frmAlamat.setRows(5);
-        jScrollPane2.setViewportView(frmAlamat);
-
-        panelSiswa.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, 230, -1));
-
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Alamat");
-        panelSiswa.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 90, -1, -1));
-        panelSiswa.add(frmKontak, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 50, 140, -1));
-
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("No Telepon");
-        panelSiswa.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 50, -1, -1));
-
+        tableSiswa.setForeground(new java.awt.Color(0, 102, 102));
         tableSiswa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -118,202 +131,64 @@ public class Siswa extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tableSiswa);
 
-        jLabel3.setText("NIS");
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 840, 160));
 
-        jLabel4.setText("Nama");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Angkatan");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
-        jLabel5.setText("Kelas");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("No Telepon");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 70, -1, -1));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Alamat");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 120, -1, -1));
 
-        jLabel7.setText("No Telepon");
-
-        jLabel8.setText("Angkatan");
+        frmKotak.setForeground(new java.awt.Color(0, 102, 102));
+        getContentPane().add(frmKotak, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 70, 200, -1));
 
         frmAlamat.setColumns(20);
+        frmAlamat.setForeground(new java.awt.Color(0, 102, 102));
         frmAlamat.setRows(5);
         jScrollPane2.setViewportView(frmAlamat);
 
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 120, 200, -1));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Cari Berdasarkan NIS Siswa");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+
+        TFCari.setForeground(new java.awt.Color(0, 102, 102));
+        getContentPane().add(TFCari, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 140, -1));
+
+        btnCari.setBackground(new java.awt.Color(255, 255, 255));
+        btnCari.setForeground(new java.awt.Color(0, 102, 102));
         btnCari.setText("Cari");
+        getContentPane().add(btnCari, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, -1));
 
-        btnTambah.setText("Tambah");
-        btnTambah.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTambahActionPerformed(evt);
-            }
-        });
+        frmKelas.setForeground(new java.awt.Color(0, 102, 102));
+        frmKelas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(frmKelas, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 200, -1));
 
-        btnSimpan.setText("Simpan");
-
-        btnEdit.setText("Edit");
-
-        btnHapus.setText("Hapus");
-
-        btnBatal.setText("Batal");
-
-        jLabel9.setText("Cari Berdasarkan NIS");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(338, 338, 338))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 767, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnTambah)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnSimpan)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnEdit)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnHapus)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnBatal)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addGap(37, 37, 37)
-                                        .addComponent(frmNIS, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel7)
-                                            .addComponent(jLabel6))
-                                        .addGap(32, 32, 32))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))
-                                                    .addGap(18, 18, 18)
-                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(frmNama, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(frmKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(jLabel8)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(frmAngkatan, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(btnCari))
-                                            .addComponent(jLabel9))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(frmKontak, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(40, 40, 40))))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel1)
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(frmNIS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(frmKontak, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(frmNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(frmKelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(frmAngkatan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(btnCari))
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnTambah)
-                            .addComponent(btnSimpan)
-                            .addComponent(btnEdit)
-                            .addComponent(btnHapus)
-                            .addComponent(btnBatal))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(18, 18, 18))
-        );
+        frmAngkatan.setForeground(new java.awt.Color(0, 102, 102));
+        frmAngkatan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(frmAngkatan, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 200, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnTambahActionPerformed
+    }//GEN-LAST:event_btnHapusActionPerformed
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
-        readData();
-    }//GEN-LAST:event_formWindowOpened
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Siswa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Siswa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Siswa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Siswa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Siswa().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField TFCari;
     private javax.swing.JButton btnBatal;
     private javax.swing.JButton btnCari;
     private javax.swing.JButton btnEdit;
@@ -323,7 +198,7 @@ public class Siswa extends javax.swing.JFrame {
     private javax.swing.JTextArea frmAlamat;
     private javax.swing.JComboBox<String> frmAngkatan;
     private javax.swing.JComboBox<String> frmKelas;
-    private javax.swing.JTextField frmKontak;
+    private javax.swing.JTextField frmKotak;
     private javax.swing.JTextField frmNIS;
     private javax.swing.JTextField frmNama;
     private javax.swing.JLabel jLabel1;
@@ -333,31 +208,8 @@ public class Siswa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tableSiswa;
     // End of variables declaration//GEN-END:variables
-    private void readData()
-    {
-        try {
-            koneksi.result = koneksi.command.executeQuery("select siswa.nama, siswa.nis, kelas.nama_kelas, kelas.jurusan, spp.tahun from siswa, kelas, spp where siswa.id_kelas = kelas.id_kelas and siswa.id_spp = spp.id_spp");
-                koneksi.model.setRowCount(0);
-                koneksi.model.fireTableDataChanged();
-                while (koneksi.result.next()) {
-                koneksi.model.addRow(new Object[]{
-                    koneksi.result.getString(1),
-                    koneksi.result.getString(2),
-                    koneksi.result.getString(3),
-                    koneksi.result.getString(4),
-                    koneksi.result.getString(5)
-                });
-            }
-        } catch (SQLException e) {
-            // TODO: handle exception
-                JOptionPane.showMessageDialog(this, "Database Gagal","Information", JOptionPane.INFORMATION_MESSAGE);
-        }   
-    }
 }
