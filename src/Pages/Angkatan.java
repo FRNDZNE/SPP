@@ -10,12 +10,12 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 import koneksi.*;
 
-public class Spp1 extends javax.swing.JInternalFrame {
+public class Angkatan extends javax.swing.JInternalFrame {
 
     Koneksi koneksi = new Koneksi();
     Page page = new Page();
     
-    public Spp1() {
+    public Angkatan() {
         initComponents();
         koneksi.model = (DefaultTableModel) tableSpp.getModel();
         koneksi.CreateKoneksi();
@@ -49,39 +49,44 @@ public class Spp1 extends javax.swing.JInternalFrame {
         btnBatal = new javax.swing.JButton();
         btnKembali = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(45, 116, 124));
+        setBackground(new java.awt.Color(204, 204, 204));
         setPreferredSize(new java.awt.Dimension(880, 470));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 51, 51));
         jLabel1.setText("No");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(0, 51, 51));
         jLabel2.setText("Angkatan");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(0, 51, 51));
         jLabel3.setText("Nominal");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
-        frmId.setForeground(new java.awt.Color(0, 102, 102));
-        getContentPane().add(frmId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 160, -1));
+        frmId.setBackground(new java.awt.Color(0, 51, 51));
+        frmId.setForeground(new java.awt.Color(255, 255, 255));
+        frmId.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(frmId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 160, -1));
 
         frmAngkatan.setForeground(new java.awt.Color(0, 102, 102));
-        getContentPane().add(frmAngkatan, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 160, -1));
+        getContentPane().add(frmAngkatan, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 160, -1));
 
-        frmNominal.setForeground(new java.awt.Color(0, 102, 102));
+        frmNominal.setBackground(new java.awt.Color(0, 51, 51));
+        frmNominal.setForeground(new java.awt.Color(255, 255, 255));
+        frmNominal.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         frmNominal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 frmNominalActionPerformed(evt);
             }
         });
-        getContentPane().add(frmNominal, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 160, -1));
+        getContentPane().add(frmNominal, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 160, -1));
 
+        tableSpp.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         tableSpp.setForeground(new java.awt.Color(0, 102, 102));
         tableSpp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -101,69 +106,75 @@ public class Spp1 extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(tableSpp);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 410, 190));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 410, 190));
 
-        btnTambah.setBackground(new java.awt.Color(255, 255, 255));
-        btnTambah.setForeground(new java.awt.Color(0, 102, 102));
+        btnTambah.setBackground(new java.awt.Color(0, 51, 51));
+        btnTambah.setForeground(new java.awt.Color(255, 255, 255));
         btnTambah.setText("Tambah");
+        btnTambah.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTambahActionPerformed(evt);
             }
         });
-        getContentPane().add(btnTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, -1, -1));
+        getContentPane().add(btnTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, 70, -1));
 
         btnSimpan.setBackground(new java.awt.Color(255, 255, 255));
         btnSimpan.setForeground(new java.awt.Color(0, 102, 102));
         btnSimpan.setText("Simpan");
+        btnSimpan.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSimpanActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, 70, -1));
+        getContentPane().add(btnSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 230, 70, -1));
 
-        btnEdit.setBackground(new java.awt.Color(255, 255, 255));
-        btnEdit.setForeground(new java.awt.Color(0, 102, 102));
+        btnEdit.setBackground(new java.awt.Color(0, 51, 51));
+        btnEdit.setForeground(new java.awt.Color(255, 255, 255));
         btnEdit.setText("Edit");
+        btnEdit.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 70, -1));
+        getContentPane().add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 270, 70, -1));
 
         btnHapus.setBackground(new java.awt.Color(255, 255, 255));
         btnHapus.setForeground(new java.awt.Color(0, 102, 102));
         btnHapus.setText("Hapus");
+        btnHapus.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHapusActionPerformed(evt);
             }
         });
-        getContentPane().add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 70, -1));
+        getContentPane().add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 310, 70, -1));
 
-        btnBatal.setBackground(new java.awt.Color(255, 255, 255));
-        btnBatal.setForeground(new java.awt.Color(0, 102, 102));
+        btnBatal.setBackground(new java.awt.Color(0, 51, 51));
+        btnBatal.setForeground(new java.awt.Color(255, 255, 255));
         btnBatal.setText("Batal");
+        btnBatal.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBatal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBatalActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, 70, -1));
+        getContentPane().add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 350, 70, -1));
 
         btnKembali.setBackground(new java.awt.Color(255, 255, 255));
         btnKembali.setForeground(new java.awt.Color(0, 102, 102));
         btnKembali.setText("Kembali");
+        btnKembali.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnKembali.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnKembaliActionPerformed(evt);
             }
         });
-        getContentPane().add(btnKembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, -1, -1));
+        getContentPane().add(btnKembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, 70, -1));
 
-        setBounds(0, 0, 900, 550);
+        setBounds(0, 0, 976, 495);
     }// </editor-fold>//GEN-END:initComponents
 
     private void frmNominalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmNominalActionPerformed
@@ -233,20 +244,20 @@ public class Spp1 extends javax.swing.JInternalFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Spp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Angkatan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Spp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Angkatan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Spp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Angkatan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Spp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Angkatan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Spp1().setVisible(true);
+                new Angkatan().setVisible(true);
             }
         });
     }

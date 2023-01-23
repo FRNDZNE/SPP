@@ -90,7 +90,7 @@ public class TampilanAwal extends javax.swing.JFrame {
 
     private void jBMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBMasukActionPerformed
         dispose();
-            login_petugas login = new login_petugas();
+            Login login = new Login();
             login.setVisible(true);
     }//GEN-LAST:event_jBMasukActionPerformed
 
