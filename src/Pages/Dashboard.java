@@ -547,9 +547,10 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void menuKeluarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuKeluarMouseClicked
         // TODO add your handling code here:
+        dispose();
         Login login = new Login();
         login.setVisible(true);
-        dispose();
+        
         
     }//GEN-LAST:event_menuKeluarMouseClicked
 

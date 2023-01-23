@@ -126,7 +126,6 @@ public class Kelas extends javax.swing.JInternalFrame {
             }
         });
 
-        btnSimpan.setBackground(new java.awt.Color(255, 255, 255));
         btnSimpan.setForeground(new java.awt.Color(0, 102, 102));
         btnSimpan.setText("Simpan");
         btnSimpan.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -136,7 +135,6 @@ public class Kelas extends javax.swing.JInternalFrame {
             }
         });
 
-        btnEdit.setBackground(new java.awt.Color(255, 255, 255));
         btnEdit.setForeground(new java.awt.Color(0, 102, 102));
         btnEdit.setText("Edit");
         btnEdit.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -149,10 +147,7 @@ public class Kelas extends javax.swing.JInternalFrame {
         tableKelas.setForeground(new java.awt.Color(0, 102, 102));
         tableKelas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "No", "Kelas", "Jurusan"
@@ -165,7 +160,6 @@ public class Kelas extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(tableKelas);
 
-        btnBatal.setBackground(new java.awt.Color(255, 255, 255));
         btnBatal.setForeground(new java.awt.Color(0, 102, 102));
         btnBatal.setText("Batal");
         btnBatal.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
